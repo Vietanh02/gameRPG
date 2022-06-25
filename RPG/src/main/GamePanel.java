@@ -16,17 +16,17 @@ public class GamePanel extends JPanel implements Runnable{
 	 */
 	private static final long serialVersionUID = 1L;
 	//SCREEN SETTING
-	final int originalTitleSize = 16; //16x16 pixel
+	final int originalTileSize = 16; //16x16 pixel
 	final int scale = 3;
-	public final int tileSize = originalTitleSize*scale;//48x48 title
+	public final int tileSize = originalTileSize*scale;//48x48 title
 	public final int maxScreenCol = 16;
 	public final int maxScreenRow = 12;
 	public final int screenWidth = tileSize*maxScreenCol; //768 pixel
 	public final int screenHeight =  tileSize*maxScreenRow; // 576 // pixel
 	
 	//WORLD SETTING 
-	public final int maxWorldCol = 30;
-	public final int maxWorldRow = 20;
+	public final int maxWorldCol = 32;
+	public final int maxWorldRow = 21;
 	public final int WorldWidth = tileSize * maxWorldCol;
 	public final int WorldHeight = tileSize * maxWorldRow;
 	
@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	KeyHandler keyH = new KeyHandler();
 	Thread gameThread;
+	public CollisionChecker cChecker = new CollisionChecker(this);
 	public Player player = new Player(this,keyH);
 	
 	
