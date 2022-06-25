@@ -12,7 +12,7 @@ import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
 	/**
-	 * 
+	 * lưu các thuộc tính, các giá trị mặc định cho game
 	 */
 	private static final long serialVersionUID = 1L;
 	//SCREEN SETTING
@@ -34,10 +34,14 @@ public class GamePanel extends JPanel implements Runnable{
 	//FPS
 	int FPS = 60;
 	
+	// bản đồ và cỏ, tường nước ( tile
 	TileManager tileM = new TileManager(this);
 	
+	// keyHandle -- các nút điều khiển
 	KeyHandler keyH = new KeyHandler();
 	Thread gameThread;
+	
+	// xác định va chạm của nhân vật với tường và nước
 	public CollisionChecker cChecker = new CollisionChecker(this);
 	public Player player = new Player(this,keyH);
 	
@@ -55,6 +59,7 @@ public class GamePanel extends JPanel implements Runnable{
 		gameThread.start();
 	}
 
+	// hàm run trong thư viện giúp lặp lại việc vẽ. Vẽ 60 bức trong 1s để tạo chuyển động
 	@Override
 	public void run() {
 		
@@ -110,6 +115,8 @@ public class GamePanel extends JPanel implements Runnable{
 			
 		}
 	}*/	
+	
+	// vẽ nhân vật
 	public void update() {
 		player.update();
 	}

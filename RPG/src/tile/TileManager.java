@@ -12,8 +12,9 @@ import main.GamePanel;
 
 public class TileManager {
 	GamePanel gp;
-	public Tile[] tile;
-	public int[][] mapTileNum;
+	public Tile[] tile;  // lưu các ô của bản đồ
+	public int[][] mapTileNum; // vẽ theo tọa đồ Oxy, ví dụ (0,1) là tường thì chèn ảnh tường vaò vị trí (0,1)
+	
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
 		tile = new Tile[10];
@@ -21,6 +22,8 @@ public class TileManager {
 		getTileImage();
 		loadMap("/maps/map01.txt");
 	}
+	
+	// nhập các ảnh wall, water, grass vào mảng tile
 	public void getTileImage() {
 		try {
 			tile[0] = new Tile();
@@ -35,6 +38,8 @@ public class TileManager {
 			e.printStackTrace();
 		}
 	}
+	
+	//tải map 01. quy định 0 là cỏ, 1 là tường 2 là nước, xem res/map01.txt
 	public void loadMap(String filePath) {
 		try {
 			InputStream is = getClass().getResourceAsStream(filePath);

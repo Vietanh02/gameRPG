@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/entity/Entity.java=UTF-8
 encoding//src/entity/Player.java=UTF-8
+encoding//src/main/GamePanel.java=UTF-8
+encoding//src/main/Main.java=UTF-8
+encoding//src/tile/TileManager.java=UTF-8
